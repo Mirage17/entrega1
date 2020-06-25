@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Mitswisser</string>
+    <string name="nomUsuario">Nombre de Usuario</string>
+    <string name="telefono">Introduzca su numero de telefono</string>
+    <string name="Entrar">Entrar</string>
+    <string name="registrarse">¿No estas registrado? ¡Hazlo!</string>
+    <string name="nombre">nombre</string>
+    <string name="email">email</string>
+    <string name="celular">celular</string>
+    <string name="password">password</string>
+    <string name="password2">password2</string>
+    <string name="fechaDeNacimiento">fechaDeNacimiento</string>
+    <string name="fecha">fecha</string>
+    <string name="askSex">askSex</string>
+    <string name="masculino">masculino</string>
+    <string name="femenino">femenino</string>
+    <string name="hobbie">hobbie</string>
+    <string name="judo">judo</string>
+    <string name="apnea">apnea</string>
+    <string name="ajedrez">ajedrez</string>
+    <string name="Rugby">Rugby</string>
+    <string name="lugar">lugar</string>
+    <string name="save">save</string>
+    <string name="Logout">Logout</string>
+    <string-array name="Ciudades1">
+        <item></item>
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cundinamarca</item>
+        <item>Calí</item>
+        <item>Barranquilla</item>
+    </string-array>
+</resources>
