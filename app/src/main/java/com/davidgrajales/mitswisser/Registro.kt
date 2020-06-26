@@ -1,10 +1,14 @@
 package com.davidgrajales.mitswisser
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.MenuItem
 import android.widget.DatePicker
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_registro.*
 import java.text.SimpleDateFormat
 
@@ -14,6 +18,8 @@ class Registro : AppCompatActivity() {
 
     private lateinit var fecha: String
     private var cal = Calendar.getInstance()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,26 +73,56 @@ class Registro : AppCompatActivity() {
 
             if (n == 0 || nombre.isEmpty() || celular.isEmpty() || email.isEmpty() || fecha.isEmpty() || pass.isEmpty() || pass2.isEmpty() || lugar.isEmpty()) {
 
-                tv_show.text = "Faltan campos por llenar. Por favor verifique la información."
+                Toast.makeText(applicationContext,"Faltan campos por llenar",Toast.LENGTH_SHORT).show()
 
             } else {
 
-                if (pass == pass2) {
-                    tv_show.text = "Su nombre es: $nombre \n " +
-                            "Su célular es: $celular \n" +
-                            "Su correo electrónico es: $email \n" +
-                            "Su fecha de nacimiento es: $fecha \n" +
-                            "su contraseña es $pass"
-                } else {
-                    tv_show.text =
-                        "las contraseñas no son iguales. Por favor verifique la información"
+                if(pass.length<=6){
+                    Toast.makeText(applicationContext,"Su contraseña debe más de 6 caracteres", Toast.LENGTH_SHORT).show()
+
                 }
+
+                else{
+
+                    if (pass == pass2) {
+                        /*tv_show.text = "Su nombre es: $nombre \n " +
+                                "Su célular es: $celular \n" +
+                                "Su correo electrónico es: $email \n" +
+                                "Su fecha de nacimiento es: $fecha \n" +
+                                "su contraseña es $pass"*/
+                        val name2pass=et_nombre.text.toString()
+                        val cel2pass=et_pass.text.toString()
+                        val email2pass=et_email.text.toString()
+                        val intent=Intent(this,Login::class.java)
+
+                        intent.putExtra("nombreUsuario",name2pass)
+                        intent.putExtra("celularUsuario",cel2pass)
+
+
+                        intent.putExtra("correoUsuario",email2pass)
+
+                        setResult(Activity.RESULT_OK)
+
+                        startActivity(intent)
+                        finish()
+                    }
+
+                    else {
+                        Toast.makeText(applicationContext,"Las contraseñas no son iguales", Toast.LENGTH_SHORT).show()
+                    }
+
+
+                }
+
+
 
 
             }
 
-            val intent=Intent(this,MainActivity::class.java)
-            startActivity(intent)
+
         }
     }
+
+
+
 }

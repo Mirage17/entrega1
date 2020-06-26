@@ -7,15 +7,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        Thread.sleep(1500)
-
-        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val email=intent?.getStringExtra("correoUsuario")
+
+        Toast.makeText(applicationContext,email, Toast.LENGTH_SHORT).show()
+        tv_email2.text=email
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
